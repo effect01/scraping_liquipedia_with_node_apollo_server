@@ -6,7 +6,16 @@ module.exports = gql`
         TournementsByStatus(game:String!, status:String!): [Tournement!]
         MatchComingUp(game:String!): [Match!]
         ProTeams(game:String!, continent:String!): [ProTeam!]
+        ProPlayers(game:String!, continent:String!): [ProPlayers!]
     }
+
+    type ProPlayers {
+        id: String!
+        country: String
+        name: String
+        team: [Team]
+    }
+
     type Match {
         team1: Team
         team2: Team
@@ -32,9 +41,9 @@ module.exports = gql`
 
 
     type Team {
-        name: String!
-        img_url: String!
-        url: String!
+        name: String
+        img_url: String
+        url: String
     }
     type League {
         name: String!
