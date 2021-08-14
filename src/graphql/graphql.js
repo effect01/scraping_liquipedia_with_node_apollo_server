@@ -4,8 +4,29 @@ module.exports = gql`
     type Query{
         Tournements(game:String!): [Tournement!]
         TournementsByStatus(game:String!, status:String!): [Tournement!]
+        MatchComingUp(game:String!): [Match!]
+       
+    }
+    type Match {
+        team1: Team
+        team2: Team
+        scoreboard: String!
+        bestOf_: String!
+        date: String
+        league: League
     }
 
+
+    type Team {
+        name: String!
+        img_url: String!
+        url: String!
+    }
+    type League {
+        name: String!
+        img_url: String!
+        url: String!
+    }
     type Tournement { 
         title: String 
         icon: String
@@ -22,7 +43,7 @@ module.exports = gql`
         end: String
     }
 
-    
+
 
 `
     // type Tournements {
