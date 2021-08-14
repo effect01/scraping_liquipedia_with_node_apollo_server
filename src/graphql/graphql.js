@@ -5,7 +5,7 @@ module.exports = gql`
         Tournements(game:String!): [Tournement!]
         TournementsByStatus(game:String!, status:String!): [Tournement!]
         MatchComingUp(game:String!): [Match!]
-       
+        ProTeams(game:String!, continent:String!): [ProTeam!]
     }
     type Match {
         team1: Team
@@ -14,6 +14,20 @@ module.exports = gql`
         bestOf_: String!
         date: String
         league: League
+    }
+
+    type ProTeam {
+        title: String!
+        logo: String!
+        url: String!
+        players: [Roster!]
+    }
+
+    type Roster {
+        country: String!
+        id: String!
+        name: String!
+        url: String!
     }
 
 
