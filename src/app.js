@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
 const { ApolloServer , gql} = require('apollo-server-express');
+const scrapeIt = require("scrape-it");
 
 const typeDefs = require('./graphql/graphql');
 const resolvers = require('./graphql/resolvers');
@@ -26,6 +27,7 @@ async function startApolloServer() {
   app.use(cors(corsOptions) );
 
 
+ 
 
   app.use(logger('dev'));
   app.use(express.json());
@@ -35,6 +37,16 @@ async function startApolloServer() {
   await serverApollo.start();
 
   serverApollo.applyMiddleware({ app });
+
+
+  app.use('/',function(req, res ) {
+
+
+
+})
+
+
+
 // catch 404 and forward to error handler
   app.use(function(req, res, next) {
     next(createError(404));

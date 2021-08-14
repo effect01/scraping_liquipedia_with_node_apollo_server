@@ -2,15 +2,10 @@ const { gql } = require("apollo-server-express")
 
 module.exports = gql`
     type Query{
-        Tournement(game:String!): Tournements
+        Tournements(game:String!): [Tournement!]
+        TournementsByStatus(game:String!, status:String!): [Tournement!]
     }
 
-
-    type Tournements {
-        coming:[Tournement]
-        current:[Tournement]
-        recent:[Tournement]
-    }
     type Tournement { 
         title: String 
         icon: String
@@ -18,6 +13,8 @@ module.exports = gql`
         teams: String
         location: String
         date: date
+        winner: String
+        second: String
 
     }
     type date {
@@ -25,4 +22,11 @@ module.exports = gql`
         end: String
     }
 
+    
+
 `
+    // type Tournements {
+    //     coming:[Tournement]
+    //     current:[Tournement]
+    //     recent:[Tournement]
+    // }
