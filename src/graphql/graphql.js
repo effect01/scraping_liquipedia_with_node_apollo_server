@@ -7,7 +7,45 @@ module.exports = gql`
         MatchComingUp(game:String!): [Match!]
         ProTeams(game:String!, continent:String!): [ProTeam!]
         ProPlayers(game:String!, continent:String!): [ProPlayers!]
+        prizesWonByTeams(game:String!): [PrizesByTeam!]
+        prizesWonByPlayers(game:String!): [PrizesByPlayer!]
+        totalPrizesByTournement(game:String!): [TournementPoolPrize!]
     }
+
+
+
+   
+    type TournementPoolPrize{
+        place: String!
+        name: String!
+        location: String
+        winner: String
+        runnerUp: String
+        teams: String
+        prizePool: String
+        organizer: String
+    }
+
+    type PrizesByPlayer{
+        place: String!
+        name: String!
+        country: String
+        firstPlaces: String
+        secondPlaces: String
+        thirdPlaces: String
+        tiers_s: String
+        earning: String
+    }
+    type PrizesByTeam {
+        place: String
+        team: Team
+        firstPlaces: String
+        secondPlaces: String
+        thirdPlaces: String
+        tierS: String
+        earning: String
+    }
+
 
     type ProPlayers {
         id: String!
