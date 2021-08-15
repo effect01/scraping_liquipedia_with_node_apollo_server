@@ -21,7 +21,9 @@ module.exports ={
         totalPrizesByTournement : async (_,{game })=> { 
             const { scrapePrizesTournement } = await require('./resolvers/prizes');
             return scrapePrizesTournement(game)
-        }
+        },
+        dota2HeroesStats : async ()=> await require('./resolvers/Dota2/dota2.heroeStadistic')(),
+        dota2ItemStats : async ()=> await require('./resolvers/Dota2/dota2.Items')(),
         
         
     }

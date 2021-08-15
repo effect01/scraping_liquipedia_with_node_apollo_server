@@ -10,6 +10,8 @@ module.exports = gql`
         prizesWonByTeams(game:String!): [PrizesByTeam!]
         prizesWonByPlayers(game:String!): [PrizesByPlayer!]
         totalPrizesByTournement(game:String!): [TournementPoolPrize!]
+        dota2HeroesStats (game:String!): [DotaHeroeStats!]
+        dota2ItemStats (game:String!): [Dota2ItemsStats!]
     }
 
 
@@ -104,11 +106,53 @@ module.exports = gql`
         end: String
     }
 
+    type DotaHeroeStats {
+        name: String!
+        base_str: String!
+        base_agi: String!
+        base_int: String!
+        str_gain: String!
+        agi_gain: String!
+        int_gain: String!
+        base_dmg: String!
+        base_armor : String!
+        base_magicRes: String!
+        base_moveSpeed: String!
+        sight_day: String!
+        sight_night: String!
+        attack_type: String!
+        attack_range: String!
+        attack_point: String!
+        attack_backswing: String!
+        base_attack_time: String!
+        cast_point: String!
+        cast_backswing: String!
+        turn_rate: String!
+        url: String!
+    }
+    type Dota2ItemsStats {
+        name: String!
+        price: String!
+        str: String!
+        agi: String!
+        int: String!
+        health: String!
+        mana: String!
+        hp_reg: String!
+        mana_reg: String!
+        armor: String!
+        evasion: String!
+        resistance: String!
+        spell_amp: String!
+        physical_dmg: String!
+        attack_speed: String!
+        movement_speed: String!
+        type: String!
+        url: String!
+
+    }
+
+
 
 
 `
-    // type Tournements {
-    //     coming:[Tournement]
-    //     current:[Tournement]
-    //     recent:[Tournement]
-    // }
